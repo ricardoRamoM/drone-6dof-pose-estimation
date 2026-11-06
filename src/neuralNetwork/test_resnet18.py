@@ -1,3 +1,6 @@
+# test_resnet18.py
+#  Prueba de ResNet-18 para regresión de posición y orientación 6-DoF.
+
 import torch
 import torch.nn as nn
 import torch.optim as optim

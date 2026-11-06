@@ -1,32 +1,28 @@
-# Entornos
+# Entorno virtual
 .venv/
+
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
 
-# Datasets pesados: frames e imágenes
-data/frames/
-data/frames_*/
-data/**/*.jpg
-data/**/*.jpeg
-data/**/*.png
+# Datasets
+dataset/
 
-# Videos
-data/videos/
-data/**/*.mp4
-data/**/*.avi
-data/**/*.mov
-data/**/*.MOV
+# Modelos entrenados
+outputs_nn/
+*.pth
+*.pt
+*.ckpt
 
-# Bases de datos COLMAP
-data/**/*.db
-data/**/*.sqlite
-data/**/*.bin
+# Resultados COLMAP
+results_colmap/
 
-# Resultados y artefactos COLMAP
-results/
+# Bases de datos
+*.db
+*.sqlite
+*.db-shm
+*.db-wal
 
-# Sistema
+# Archivos temporales
 .DS_Store
-
-# Lock files (LibreOffice, etc.)
 .~lock.*#
