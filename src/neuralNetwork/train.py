@@ -26,8 +26,8 @@ from model import ResNetPoseRegressor, normalize_quaternion, pose_loss
 ROOT = Path(__file__).resolve().parents[2]
 BASE_OUTPUT_DIR = ROOT / "outputs_nn" / "resnet18"
 
-DEFAULT_EPOCHS = 4 #20
-DEFAULT_BATCH_SIZE = 1 #8
+DEFAULT_EPOCHS = 80 #20
+DEFAULT_BATCH_SIZE = 4 #8
 DEFAULT_LR = 1e-4 
 DEFAULT_SEED = 42
 
@@ -120,7 +120,7 @@ def evaluate(model, loader, device, position_mean, position_std):
             total_orientation_loss += ori_loss.item() * batch_size
             total_images += batch_size
 
-            # Desnormalizar para evaluar en coordenadas originales.
+            # Desnormalizar para evaluar en metros (unidades originales del CSV).
             predicted_position = (
                 predictions[:, :3] * position_std + position_mean
             )
@@ -145,8 +145,10 @@ def evaluate(model, loader, device, position_mean, position_std):
         "loss": total_loss / total_images,
         "position_loss": total_position_loss / total_images,
         "orientation_loss": total_orientation_loss / total_images,
-        "position_error_mean": float(np.mean(position_errors)),
-        "position_error_median": float(np.median(position_errors)),
+        "position_error_mean": float(np.mean(position_errors)),          # metros
+        "position_error_median": float(np.median(position_errors)),      # metros
+        "position_error_mean_cm": float(np.mean(position_errors) * 100), # cm
+        "position_error_median_cm": float(np.median(position_errors) * 100), # cm
         "orientation_error_mean_deg": float(np.mean(angular_errors)),
         "orientation_error_median_deg": float(np.median(angular_errors)),
     }
@@ -313,9 +315,10 @@ def main():
         )
         print(
             f"  Error de posición: "
-            f"media={val_metrics['position_error_mean']:.5f}, "
-            f"mediana={val_metrics['position_error_median']:.5f} "
-            f"(unidades COLMAP)"
+            f"media={val_metrics['position_error_mean']*100:.2f} cm "
+            f"({val_metrics['position_error_mean']:.4f} m), "
+            f"mediana={val_metrics['position_error_median']*100:.2f} cm "
+            f"({val_metrics['position_error_median']:.4f} m)"
         )
         print(
             f"  Error angular: "
