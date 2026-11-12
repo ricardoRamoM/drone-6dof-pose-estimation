@@ -26,10 +26,10 @@ from model import ResNetPoseRegressor, normalize_quaternion, pose_loss
 ROOT = Path(__file__).resolve().parents[2]
 BASE_OUTPUT_DIR = ROOT / "outputs_nn" / "resnet18"
 
-DEFAULT_EPOCHS = 80 #20
-DEFAULT_BATCH_SIZE = 4 #8
-DEFAULT_LR = 1e-4 
-DEFAULT_SEED = 42
+DEFAULT_EPOCHS = 300 #20
+DEFAULT_BATCH_SIZE = 8 #8
+DEFAULT_LR = 1e-4 #1e-4 #5e-5 # #0.0001 # 0.00005
+DEFAULT_SEED = 123 # semilla controla la aleatoriedad del entrenamiento
 
 # learning rate (tasa de aprendizaje) es un hiperparámetro que controla 
 # la magnitud de los pasos de actualización de los pesos durante el entrenamiento.
@@ -71,6 +71,7 @@ def create_run_directory(args) -> Path:
         f"_ep{args.epochs}"
         f"_bs{args.batch_size}"
         f"_lr{lr_str}"
+        f"_sd{args.seed}"
     )
     if args.run_tag:
         name += f"_{args.run_tag}"
@@ -196,6 +197,7 @@ def main():
     print("Épocas:", args.epochs)
     print("Batch size:", args.batch_size)
     print("Learning rate:", args.lr)
+    print("Seed:", args.seed) #semilla
 
     run_dir = create_run_directory(args)
     checkpoint_path = run_dir / "best_model.pth"
@@ -242,6 +244,15 @@ def main():
     ).to(device)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
+
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+    optimizer,
+    mode="min",
+    factor=0.5,
+    patience=8,
+    threshold=0.001,
+    min_lr=1e-6
+)
 
     best_val_loss = float("inf")
     history = []
@@ -302,6 +313,7 @@ def main():
         record = {
             "epoch": epoch,
             "train_loss": train_loss,
+            "val_loss": val_metrics["loss"],   # <-- añadir esta línea
             "epoch_duration_sec": epoch_duration,
             **val_metrics,
         }
@@ -364,6 +376,7 @@ def main():
     print("Épocas:", args.epochs)
     print("Batch size:", args.batch_size)
     print("Learning rate:", args.lr)
+    print("Semilla:", args.seed)
     print(f"Tiempo total de entrenamiento: {format_duration(total_duration)}")
     print(
         f"Tiempo medio por época: "

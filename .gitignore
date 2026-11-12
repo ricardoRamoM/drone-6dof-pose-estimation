@@ -26,3 +26,11 @@ results_colmap/
 # Archivos temporales
 .DS_Store
 .~lock.*#
+
+# Documentos locales
+README copy.md
+README_proyecto_drone_6dof.md
+
+docs/archive/
+
+src/train_resnet18.ipynb

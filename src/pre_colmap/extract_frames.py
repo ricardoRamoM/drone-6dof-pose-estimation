@@ -16,7 +16,7 @@ no los frames originales del AVI.
 
 Ejemplos:
   python src/pre_colmap/extract_frames.py 
-  python src/pre_colmap/extract_frames.py --version v2_0 --clean-output SOLO PARA EXISTENTES
+  python src/pre_colmap/extract_frames.py --version v2_0 --clean-output BORRA EXISTENTES
   python src/pre_colmap/extract_frames.py --version v2_0 --cut-mode global --start-seconds 5 --end-seconds 5 --clean-output
   python src/pre_colmap/extract_frames.py --version v2_1 --fps 3 --clean-output
 """
@@ -32,7 +32,7 @@ import cv2
 
 # Versión del dataset usada si no se pasa --version por línea de comandos.
 # Cambia este valor para mover todas las salidas a otra versión.
-DEFAULT_DATASET_VERSION = "v2_0"
+DEFAULT_DATASET_VERSION = "v2_1"
 
 # Raíz del dataset. Bajo ella se crea <version>/videos, <version>/frames y
 # <version>/frames_all.
@@ -41,7 +41,7 @@ DATASET_ROOT = Path("dataset")
 # Valores por defecto de extracción (sobreescribibles por CLI).
 DEFAULT_FPS = 2.0
 DEFAULT_CUT_MODE = "global"  # "global", "per-video"
-DEFAULT_START_SECONDS = 5.0
+DEFAULT_START_SECONDS = 4.0
 DEFAULT_END_SECONDS = 2.5
 
 # Segundos excluidos al inicio y al final de cada video (modo per-video).

@@ -71,7 +71,6 @@
 │   │   │       └── ref_frame015.jpg
 │   │   └── frames_all  [1315 entries exceeds filelimit, not opening dir]
 │   ├── v2_0
-│   │   ├── 1
 │   │   ├── bebop_tests
 │   │   │   ├── bebop_001_val.avi
 │   │   │   ├── bebop_002_train.avi
@@ -116,21 +115,258 @@
 │   │   │   └── bebop_test_001.avi
 │   │   ├── colmap_reference_positions.txt
 │   │   └── poses_split.csv
+│   ├── v2_1
+│   │   ├── frames
+│   │   │   ├── bebop_test_001  [80 entries exceeds filelimit, not opening dir]
+│   │   │   ├── bebop_test_002  [91 entries exceeds filelimit, not opening dir]
+│   │   │   ├── bebop_test_003  [74 entries exceeds filelimit, not opening dir]
+│   │   │   ├── bebop_test_004  [140 entries exceeds filelimit, not opening dir]
+│   │   │   ├── bebop_test_005  [88 entries exceeds filelimit, not opening dir]
+│   │   │   ├── bebop_test_006  [57 entries exceeds filelimit, not opening dir]
+│   │   │   ├── bebop_test_007  [112 entries exceeds filelimit, not opening dir]
+│   │   │   ├── bebop_test_008  [119 entries exceeds filelimit, not opening dir]
+│   │   │   ├── bebop_test_009  [101 entries exceeds filelimit, not opening dir]
+│   │   │   ├── bebop_test_010  [115 entries exceeds filelimit, not opening dir]
+│   │   │   └── bebop_test_011  [146 entries exceeds filelimit, not opening dir]
+│   │   ├── frames_all  [1123 entries exceeds filelimit, not opening dir]
+│   │   └── videos
+│   │       ├── bebop_test_001.avi
+│   │       ├── bebop_test_002.avi
+│   │       ├── bebop_test_003.avi
+│   │       ├── bebop_test_004.avi
+│   │       ├── bebop_test_005.avi
+│   │       ├── bebop_test_006.avi
+│   │       ├── bebop_test_007.avi
+│   │       ├── bebop_test_008.avi
+│   │       ├── bebop_test_009.avi
+│   │       ├── bebop_test_010.avi
+│   │       └── bebop_test_011.avi
 │   ├── .~lock.poses_colmap_metric_aligned_A.csv#
 │   └── .~lock.poses_colmap_split.csv#
 ├── outputs_nn
 │   ├── resnet18
-│   │   ├── v2_0_run_00_ep10_bs4_lr0p0001
-│   │   │   ├── best_model.pth
-│   │   │   └── history.json
+│   │   ├── analysis
+│   │   │   ├── runs
+│   │   │   │   ├── v2_0_run_01_ep2_bs2_lr0p0001
+│   │   │   │   │   ├── 01_loss.png
+│   │   │   │   │   ├── 02_position_error.png
+│   │   │   │   │   ├── 03_orientation_error.png
+│   │   │   │   │   ├── 04_learning_rate.png
+│   │   │   │   │   ├── 05_generalization_gap.png
+│   │   │   │   │   ├── 06_summary.png
+│   │   │   │   │   └── report.md
+│   │   │   │   ├── v2_0_run_02_ep4_bs1_lr0p0001
+│   │   │   │   │   ├── 01_loss.png
+│   │   │   │   │   ├── 02_position_error.png
+│   │   │   │   │   ├── 03_orientation_error.png
+│   │   │   │   │   ├── 04_learning_rate.png
+│   │   │   │   │   ├── 05_generalization_gap.png
+│   │   │   │   │   ├── 06_summary.png
+│   │   │   │   │   └── report.md
+│   │   │   │   ├── v2_0_run_03_ep80_bs4_lr0p0001
+│   │   │   │   │   ├── 01_loss.png
+│   │   │   │   │   ├── 02_position_error.png
+│   │   │   │   │   ├── 03_orientation_error.png
+│   │   │   │   │   ├── 04_learning_rate.png
+│   │   │   │   │   ├── 05_generalization_gap.png
+│   │   │   │   │   ├── 06_summary.png
+│   │   │   │   │   └── report.md
+│   │   │   │   ├── v2_0_run_04_ep10_bs8_lr0p0001
+│   │   │   │   │   ├── 01_loss.png
+│   │   │   │   │   ├── 02_position_error.png
+│   │   │   │   │   ├── 03_orientation_error.png
+│   │   │   │   │   ├── 04_learning_rate.png
+│   │   │   │   │   ├── 05_generalization_gap.png
+│   │   │   │   │   ├── 06_summary.png
+│   │   │   │   │   └── report.md
+│   │   │   │   ├── v2_0_run_05_ep10_bs4_lr0p0001
+│   │   │   │   │   ├── 01_loss.png
+│   │   │   │   │   ├── 02_position_error.png
+│   │   │   │   │   ├── 03_orientation_error.png
+│   │   │   │   │   ├── 04_learning_rate.png
+│   │   │   │   │   ├── 05_generalization_gap.png
+│   │   │   │   │   ├── 06_summary.png
+│   │   │   │   │   └── report.md
+│   │   │   │   ├── v2_0_run_06_ep10_bs4_lr5e-05
+│   │   │   │   │   ├── 01_loss.png
+│   │   │   │   │   ├── 02_position_error.png
+│   │   │   │   │   ├── 03_orientation_error.png
+│   │   │   │   │   ├── 04_learning_rate.png
+│   │   │   │   │   ├── 05_generalization_gap.png
+│   │   │   │   │   ├── 06_summary.png
+│   │   │   │   │   └── report.md
+│   │   │   │   ├── v2_0_run_07_ep10_bs4_lr0p0002
+│   │   │   │   │   ├── 01_loss.png
+│   │   │   │   │   ├── 02_position_error.png
+│   │   │   │   │   ├── 03_orientation_error.png
+│   │   │   │   │   ├── 04_learning_rate.png
+│   │   │   │   │   ├── 05_generalization_gap.png
+│   │   │   │   │   ├── 06_summary.png
+│   │   │   │   │   └── report.md
+│   │   │   │   ├── v2_0_run_08_ep80_bs8_lr0p0001
+│   │   │   │   │   ├── 01_loss.png
+│   │   │   │   │   ├── 02_position_error.png
+│   │   │   │   │   ├── 03_orientation_error.png
+│   │   │   │   │   ├── 04_learning_rate.png
+│   │   │   │   │   ├── 05_generalization_gap.png
+│   │   │   │   │   ├── 06_summary.png
+│   │   │   │   │   └── report.md
+│   │   │   │   ├── v2_0_run_09_ep80_bs8_lr5e-05
+│   │   │   │   │   ├── 01_loss.png
+│   │   │   │   │   ├── 02_position_error.png
+│   │   │   │   │   ├── 03_orientation_error.png
+│   │   │   │   │   ├── 04_learning_rate.png
+│   │   │   │   │   ├── 05_generalization_gap.png
+│   │   │   │   │   ├── 06_summary.png
+│   │   │   │   │   └── report.md
+│   │   │   │   ├── v2_0_run_10_ep300_bs8_lr0p0001
+│   │   │   │   │   ├── 01_loss.png
+│   │   │   │   │   ├── 02_position_error.png
+│   │   │   │   │   ├── 03_orientation_error.png
+│   │   │   │   │   ├── 04_learning_rate.png
+│   │   │   │   │   ├── 05_generalization_gap.png
+│   │   │   │   │   ├── 06_summary.png
+│   │   │   │   │   └── report.md
+│   │   │   │   ├── v2_0_run_11_ep300_bs8_lr0p0001_sd123
+│   │   │   │   │   ├── 01_loss.png
+│   │   │   │   │   ├── 02_position_error.png
+│   │   │   │   │   ├── 03_orientation_error.png
+│   │   │   │   │   ├── 04_learning_rate.png
+│   │   │   │   │   ├── 05_generalization_gap.png
+│   │   │   │   │   ├── 06_summary.png
+│   │   │   │   │   └── report.md
+│   │   │   │   ├── v2_0_run_12_ep2_bs8_lr0p0001_sd42_smoke_test
+│   │   │   │   │   ├── 01_loss.png
+│   │   │   │   │   ├── 02_position_error.png
+│   │   │   │   │   ├── 03_orientation_error.png
+│   │   │   │   │   ├── 04_learning_rate.png
+│   │   │   │   │   ├── 05_generalization_gap.png
+│   │   │   │   │   ├── 06_summary.png
+│   │   │   │   │   └── report.md
+│   │   │   │   ├── v2_0_run_13_ep120_bs8_lr0p0001_sd42_scheduler_ep120
+│   │   │   │   │   ├── 01_loss.png
+│   │   │   │   │   ├── 02_position_error.png
+│   │   │   │   │   ├── 03_orientation_error.png
+│   │   │   │   │   ├── 04_learning_rate.png
+│   │   │   │   │   ├── 05_generalization_gap.png
+│   │   │   │   │   ├── 06_summary.png
+│   │   │   │   │   └── report.md
+│   │   │   │   └── v2_0_run_14_ep120_bs8_lr0p0001_sd42_wd0p0001_e14_wd
+│   │   │   │       ├── 01_loss.png
+│   │   │   │       ├── 02_position_error.png
+│   │   │   │       ├── 03_orientation_error.png
+│   │   │   │       ├── 04_learning_rate.png
+│   │   │   │       ├── 05_generalization_gap.png
+│   │   │   │       ├── 06_summary.png
+│   │   │   │       └── report.md
+│   │   │   ├── summaries
+│   │   │   │   ├── 10 epochs
+│   │   │   │   │   ├── v2_0_run_04_ep10_bs8_lr0p0001.png
+│   │   │   │   │   ├── v2_0_run_05_ep10_bs4_lr0p0001.png
+│   │   │   │   │   ├── v2_0_run_06_ep10_bs4_lr5e-05.png
+│   │   │   │   │   └── v2_0_run_07_ep10_bs4_lr0p0002.png
+│   │   │   │   ├── 2 epochs
+│   │   │   │   │   ├── v2_0_run_01_ep2_bs2_lr0p0001.png
+│   │   │   │   │   ├── v2_0_run_02_ep4_bs1_lr0p0001.png
+│   │   │   │   │   └── v2_0_run_12_ep2_bs8_lr0p0001_sd42_smoke_test.png
+│   │   │   │   ├── 80 120 300 epochs
+│   │   │   │   │   ├── v2_0_run_03_ep80_bs4_lr0p0001.png
+│   │   │   │   │   ├── v2_0_run_08_ep80_bs8_lr0p0001.png
+│   │   │   │   │   ├── v2_0_run_09_ep80_bs8_lr5e-05.png
+│   │   │   │   │   ├── v2_0_run_10_ep300_bs8_lr0p0001.png
+│   │   │   │   │   ├── v2_0_run_11_ep300_bs8_lr0p0001_sd123.png
+│   │   │   │   │   ├── v2_0_run_13_ep120_bs8_lr0p0001_sd42_scheduler_ep120.png
+│   │   │   │   │   └── v2_0_run_14_ep120_bs8_lr0p0001_sd42_wd0p0001_e14_wd.png
+│   │   │   │   ├── v2_0_run_01_ep2_bs2_lr0p0001.png
+│   │   │   │   ├── v2_0_run_02_ep4_bs1_lr0p0001.png
+│   │   │   │   ├── v2_0_run_03_ep80_bs4_lr0p0001.png
+│   │   │   │   ├── v2_0_run_04_ep10_bs8_lr0p0001.png
+│   │   │   │   ├── v2_0_run_05_ep10_bs4_lr0p0001.png
+│   │   │   │   ├── v2_0_run_06_ep10_bs4_lr5e-05.png
+│   │   │   │   ├── v2_0_run_07_ep10_bs4_lr0p0002.png
+│   │   │   │   ├── v2_0_run_08_ep80_bs8_lr0p0001.png
+│   │   │   │   ├── v2_0_run_09_ep80_bs8_lr5e-05.png
+│   │   │   │   ├── v2_0_run_10_ep300_bs8_lr0p0001.png
+│   │   │   │   ├── v2_0_run_11_ep300_bs8_lr0p0001_sd123.png
+│   │   │   │   ├── v2_0_run_12_ep2_bs8_lr0p0001_sd42_smoke_test.png
+│   │   │   │   ├── v2_0_run_13_ep120_bs8_lr0p0001_sd42_scheduler_ep120.png
+│   │   │   │   └── v2_0_run_14_ep120_bs8_lr0p0001_sd42_wd0p0001_e14_wd.png
+│   │   │   └── all_reports.md
+│   │   ├── analysis_compare
+│   │   │   ├── 01_val_loss_compare.png
+│   │   │   ├── 02_best_val_loss.png
+│   │   │   ├── 03_best_position_error.png
+│   │   │   ├── 04_best_orientation_error.png
+│   │   │   ├── 05_numeric_summary.md
+│   │   │   ├── 06_sanity_checks.md
+│   │   │   ├── 07_fig1_pipeline_overview.png
+│   │   │   ├── 08_fig2_hyperparam_sweep.png
+│   │   │   ├── 09_fig3_overfitting.png
+│   │   │   ├── 10_fig4_control_mechanisms.png
+│   │   │   ├── 11_fig5_tradeoff_scatter.png
+│   │   │   ├── 12_fig5b_overfit_diagnostic.png
+│   │   │   ├── 13_fig6_pair_compare.png
+│   │   │   ├── 14_fig7_training_times.png
+│   │   │   └── report.md
 │   │   ├── v2_0_run_01_ep2_bs2_lr0p0001
 │   │   │   ├── best_model.pth
 │   │   │   ├── history.json
 │   │   │   └── run_info.json
-│   │   └── v2_0_run_02_ep4_bs1_lr0p0001
+│   │   ├── v2_0_run_02_ep4_bs1_lr0p0001
+│   │   │   ├── best_model.pth
+│   │   │   ├── history.json
+│   │   │   └── run_info.json
+│   │   ├── v2_0_run_03_ep80_bs4_lr0p0001
+│   │   │   ├── best_model.pth
+│   │   │   ├── history.json
+│   │   │   └── run_info.json
+│   │   ├── v2_0_run_04_ep10_bs8_lr0p0001
+│   │   │   ├── best_model.pth
+│   │   │   ├── history.json
+│   │   │   └── run_info.json
+│   │   ├── v2_0_run_05_ep10_bs4_lr0p0001
+│   │   │   ├── best_model.pth
+│   │   │   ├── history.json
+│   │   │   └── run_info.json
+│   │   ├── v2_0_run_06_ep10_bs4_lr5e-05
+│   │   │   ├── best_model.pth
+│   │   │   ├── history.json
+│   │   │   └── run_info.json
+│   │   ├── v2_0_run_07_ep10_bs4_lr0p0002
+│   │   │   ├── best_model.pth
+│   │   │   ├── history.json
+│   │   │   └── run_info.json
+│   │   ├── v2_0_run_08_ep80_bs8_lr0p0001
+│   │   │   ├── best_model.pth
+│   │   │   ├── history.json
+│   │   │   └── run_info.json
+│   │   ├── v2_0_run_09_ep80_bs8_lr5e-05
+│   │   │   ├── best_model.pth
+│   │   │   ├── history.json
+│   │   │   └── run_info.json
+│   │   ├── v2_0_run_10_ep300_bs8_lr0p0001
+│   │   │   ├── best_model.pth
+│   │   │   ├── history.json
+│   │   │   └── run_info.json
+│   │   ├── v2_0_run_11_ep300_bs8_lr0p0001_sd123
+│   │   │   ├── best_model.pth
+│   │   │   ├── history.json
+│   │   │   └── run_info.json
+│   │   ├── v2_0_run_12_ep2_bs8_lr0p0001_sd42_smoke_test
+│   │   │   ├── best_model.pth
+│   │   │   ├── history.json
+│   │   │   ├── run_info.json
+│   │   │   └── val_predictions.csv
+│   │   ├── v2_0_run_13_ep120_bs8_lr0p0001_sd42_scheduler_ep120
+│   │   │   ├── best_model.pth
+│   │   │   ├── history.json
+│   │   │   ├── run_info.json
+│   │   │   └── val_predictions.csv
+│   │   └── v2_0_run_14_ep120_bs8_lr0p0001_sd42_wd0p0001_e14_wd
 │   │       ├── best_model.pth
 │   │       ├── history.json
-│   │       └── run_info.json
+│   │       ├── run_info.json
+│   │       └── val_predictions.csv
 │   └── resnet18_v1.0
 │       ├── best_model_2epochs.pth
 │       ├── best_model.pth
@@ -213,10 +449,16 @@
 │       ├── database.db
 │       └── filtering_report.txt
 ├── src
+│   ├── analysis_nn
+│   │   ├── analyze_run.py
+│   │   ├── compare_runs.py
+│   │   └── __init__.py
 │   ├── neuralNetwork
 │   │   ├── dataset.py
+│   │   ├── __init__.py
 │   │   ├── model.py
 │   │   ├── test_resnet18.py
+│   │   ├── train_2.py
 │   │   └── train.py
 │   ├── post_colmap
 │   │   ├── filter
@@ -229,8 +471,9 @@
 │   │   ├── align_colmap_to_flu.py
 │   │   ├── split_dataset.py
 │   │   └── validate_poses.py
-│   └── pre_colmap
-│       └── extract_frames.py
+│   ├── pre_colmap
+│   │   └── extract_frames.py
+│   └── __init__.py
 ├── .venv
 │   ├── bin  [22 entries exceeds filelimit, not opening dir]
 │   ├── include
@@ -245,12 +488,18 @@
 │   │           ├── isympy.1
 │   │           └── ttx.1
 │   └── pyvenv.cfg
+├── Bitacora.md
 ├── .gitignore
-├── ESTRUCTURA.md
-├── README copy.md
+├── Progress_Report.md
+├── README_04_11.md
+├── README_07_10.md
+├── README_11_11.md
+├── README_21_10.md
+├── README_28_10.md
 ├── README.md
-├── README_proyecto_drone_6dof.md
-└── requirements.txt
+├── requirements.txt
+├── resumen_entrenamientos_drone_6dof.md
+├── Technical_Advances.md
+└── train_resnet18.ipynb
 
-94 directories, 156 files
-```
+141 directories, 360 files
