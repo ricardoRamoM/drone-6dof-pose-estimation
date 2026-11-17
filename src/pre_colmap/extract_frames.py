@@ -11,7 +11,7 @@ Genera (por defecto, con --version v2_0):
 Lee los videos AVI desde (por defecto):
   dataset/v2_0/videos/
 
-El índice empieza en cero para cada video y cuenta solo las imágenes extraídas,
+El indice empieza en cero para cada video y cuenta solo las imagenes extraidas,
 no los frames originales del AVI.
 
 Ejemplos:
@@ -27,18 +27,18 @@ import cv2
 
 
 # ---------------------------------------------------------------------------
-# Configuración por defecto
+# Configuracion por defecto
 # ---------------------------------------------------------------------------
 
-# Versión del dataset usada si no se pasa --version por línea de comandos.
-# Cambia este valor para mover todas las salidas a otra versión.
+# Version del dataset usada si no se pasa --version por linea de comandos.
+# Cambia este valor para mover todas las salidas a otra version.
 DEFAULT_DATASET_VERSION = "v2_1"
 
-# Raíz del dataset. Bajo ella se crea <version>/videos, <version>/frames y
+# Raiz del dataset. Bajo ella se crea <version>/videos, <version>/frames y
 # <version>/frames_all.
 DATASET_ROOT = Path("dataset")
 
-# Valores por defecto de extracción (sobreescribibles por CLI).
+# Valores por defecto de extraccion (sobreescribibles por CLI).
 DEFAULT_FPS = 2.0
 DEFAULT_CUT_MODE = "global"  # "global", "per-video"
 DEFAULT_START_SECONDS = 4.0
@@ -76,7 +76,7 @@ def get_cuts(video_path: Path, cut_mode: str, start_seconds: float,
 def extract_frames(video_path: Path, per_video_dir: Path, colmap_dir: Path,
                    fps: float, start_seconds: float, end_seconds: float,
                    jpeg_quality: int = 95) -> int:
-    """Extrae imágenes con índices consecutivos en ambas ubicaciones."""
+    """Extrae imagenes con indices consecutivos en ambas ubicaciones."""
     cap = cv2.VideoCapture(str(video_path))
     if not cap.isOpened():
         raise RuntimeError(f"No se pudo abrir el video: {video_path}")
@@ -86,7 +86,7 @@ def extract_frames(video_path: Path, per_video_dir: Path, colmap_dir: Path,
     if video_fps <= 0 or total_frames <= 0:
         cap.release()
         raise RuntimeError(
-            f"No se pudo leer FPS/número de frames de {video_path.name}"
+            f"No se pudo leer FPS/numero de frames de {video_path.name}"
         )
 
     duration = total_frames / video_fps
@@ -94,7 +94,7 @@ def extract_frames(video_path: Path, per_video_dir: Path, colmap_dir: Path,
         cap.release()
         raise ValueError(
             f"Los recortes suman {start_seconds + end_seconds:.2f}s y "
-            f"la duración de {video_path.name} es {duration:.2f}s."
+            f"la duracion de {video_path.name} es {duration:.2f}s."
         )
 
     start_frame = min(total_frames - 1, int(round(start_seconds * video_fps)))
@@ -108,9 +108,9 @@ def extract_frames(video_path: Path, per_video_dir: Path, colmap_dir: Path,
     colmap_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"\nVideo: {video_path.name}")
-    print(f"  Resolución: {int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))}x"
+    print(f"  Resolucion: {int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))}x"
           f"{int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))}")
-    print(f"  FPS originales: {video_fps:.3f}; duración: {duration:.2f}s")
+    print(f"  FPS originales: {video_fps:.3f}; duracion: {duration:.2f}s")
     print(f"  Recorte: inicio {start_seconds:.2f}s; final {end_seconds:.2f}s")
     print(f"  Muestreo: cada {interval} frames (~{video_fps / interval:.3f} FPS)")
 
@@ -159,7 +159,7 @@ def main():
         description="Extrae frames de videos para el dataset de pose 6-DoF."
     )
     parser.add_argument("--version", default=DEFAULT_DATASET_VERSION,
-                        help=("Versión del dataset vX_X. Determina las rutas por defecto: "
+                        help=("Version del dataset vX_X. Determina las rutas por defecto: "
                               "dataset/<version>/videos, dataset/<version>/frames "
                               f"y dataset/<version>/frames_all "
                               f"(por defecto: {DEFAULT_DATASET_VERSION})."))
@@ -167,13 +167,13 @@ def main():
                         help=("Carpeta con los videos AVI. "
                               "Si no se indica, se usa dataset/<version>/videos."))
     parser.add_argument("--output", type=Path, default=None,
-                        help=("Carpeta raíz para las carpetas individuales por video. "
+                        help=("Carpeta raiz para las carpetas individuales por video. "
                               "Si no se indica, se usa dataset/<version>/frames."))
     parser.add_argument("--colmap-output", type=Path, default=None,
                         help=("Carpeta plana con todos los frames para COLMAP. "
                               "Si no se indica, se usa dataset/<version>/frames_all."))
     parser.add_argument("--fps", type=float, default=DEFAULT_FPS,
-                        help=f"Frecuencia aproximada de extracción en frames por segundo "
+                        help=f"Frecuencia aproximada de extraccion en frames por segundo "
                              f"(por defecto: {DEFAULT_FPS}).")
     parser.add_argument("--cut-mode", choices=("global", "per-video"),
                         default=DEFAULT_CUT_MODE,
@@ -191,7 +191,7 @@ def main():
                         help="Borra solo JPG dentro de las carpetas de salida antes de extraer.")
     args = parser.parse_args()
 
-    # Validaciones básicas de argumentos.
+    # Validaciones basicas de argumentos.
     if args.fps <= 0:
         parser.error("--fps debe ser mayor que cero.")
     if args.start_seconds < 0 or args.end_seconds < 0:
@@ -199,11 +199,11 @@ def main():
     if not 0 <= args.jpeg_quality <= 100:
         parser.error("--jpeg-quality debe estar entre 0 y 100.")
 
-    # La versión no debe contener separadores de ruta para evitar sorpresas.
+    # La version no debe contener separadores de ruta para evitar sorpresas.
     if not args.version or "/" in args.version or "\\" in args.version:
-        parser.error("--version no puede estar vacío ni contener separadores de ruta.")
+        parser.error("--version no puede estar vacio ni contener separadores de ruta.")
 
-    # Resolver rutas en función de la versión (si no se sobreescriben por CLI).
+    # Resolver rutas en funcion de la version (si no se sobreescriben por CLI).
     dataset_version_dir = DATASET_ROOT / args.version
     if args.input is None:
         args.input = dataset_version_dir / "videos"
@@ -212,7 +212,7 @@ def main():
     if args.colmap_output is None:
         args.colmap_output = dataset_version_dir / "frames_all"
 
-    # Ahora sí podemos validar que la carpeta de entrada exista.
+    # Ahora si podemos validar que la carpeta de entrada exista.
     if not args.input.is_dir():
         parser.error(f"No existe la carpeta de entrada: {args.input}")
 
@@ -248,7 +248,7 @@ def main():
             print(f"ERROR: {exc}")
 
     print("\n===== RESUMEN =====")
-    print(f"Versión del dataset: {args.version}")
+    print(f"Version del dataset: {args.version}")
     print(f"Entrada (videos):    {args.input}")
     print(f"Videos encontrados:  {len(videos)}")
     print(f"Frames guardados (copias incluidas en ambas ubicaciones): {total_saved}")
