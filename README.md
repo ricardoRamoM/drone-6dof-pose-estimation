@@ -188,22 +188,18 @@ Producen curvas de pérdida, errores de posición y orientación, learning rate,
 1. La validación es **una sola secuencia** (`bebop_001_val`); no demuestra generalización a otras rutas, iluminación o entornos.
 2. El conjunto de **test independiente** aún no está definido ni evaluado.
 3. Los residuos de alineación (RMSE 2.68 cm) usan las mismas 15 referencias del ajuste; **no son validación independiente**.
-4. Las etiquetas son estimaciones de COLMAP; ocho poses están marcadas como sospechosas y falta revisarlas.
+4. Las etiquetas son estimaciones de COLMAP.
 5. Los mejores errores de posición y orientación por run provienen de épocas distintas; no describen un único checkpoint.
-6. Falta la transformación cámara→cuerpo del Bebop.
-7. Hay una discrepancia de 15 imágenes entre la suma de train por secuencia de `v2_0` (869) y un total reportado en un resumen previo (884); verificar los conteos reales en `poses_split.csv`.
 
 ---
 
 ## 9. Próximos pasos
 
-- [ ] **Experimento 1 (barato):** ResNet-18 con pérdida de pesos aprendibles (PoseNet2, Kendall & Cipolla 2017) y comparar contra E08 con el mismo split y configuración.
-- [ ] Reproducir un PoseNet/PoseLSTM en PyTorch en Colab (T4) sobre una escena de 7-Scenes (p. ej. Chess) y verificar que el error se acerque al del artículo.
-- [ ] Siguiente candidato: MapNet (pérdida relativa entre imágenes de una secuencia); AtLoc o MS-Transformer solo si lo anterior funciona. Descartar por ahora Direct-PoseNet/DFNet/NeFeS (NeRF, requieren GPU).
+- [ ] Reproducir un PoseNet/PoseLSTM en PyTorch sobre una escena de 7-Scenes (p. ej. Chess) y verificar que el error se acerque al del artículo.
+- [ ] Siguiente candidato: MapNet (pérdida relativa entre imágenes de una secuencia); AtLoc, ACE o MS-Transformer solo si lo anterior funciona. 
 - [ ] Adaptar la variante elegida a `v2_0`.
 - [ ] Comparar contra E08 con el mismo split, etiquetas y métricas.
 - [ ] Evaluar los checkpoints candidatos de ResNet-18 sobre exactamente las mismas imágenes de validación.
-- [ ] Revisar las 8 poses sospechosas y confirmar el split.
 - [ ] Definir y evaluar un conjunto de test independiente.
 - [ ] Medir latencia de inferencia y tamaño del modelo.
 - [ ] Probar inferencia offline e integración ROS Noetic si el tiempo lo permite.
@@ -217,4 +213,3 @@ Producen curvas de pérdida, errores de posición y orientación, learning rate,
 | `README.md` | Explicar el proyecto y el funcionamiento del repositorio. |
 | `Progress_Report.md` | Actividades y logros para evaluar el avance. |
 | `Technical_Advances.md` | Historial técnico detallado de experimentos y desarrollos. |
-| `Final_Report.docx` | Informe formal final conforme a los 11 apartados institucionales. |
