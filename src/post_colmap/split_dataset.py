@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DATASET_ROOT = ROOT / "dataset"
 RESULTS_ROOT = ROOT / "results_colmap"
 
-DEFAULT_DATASET_VERSION = "v2_0"
+DEFAULT_DATASET_VERSION = "v2_2"
 
 VIDEO_SPLITS = {
     "train": {
@@ -32,9 +32,22 @@ VIDEO_SPLITS = {
         "bebop_003_train",
         "bebop_004_train",
         "bebop_005_train",
+        "bebop_test_001",
+        "bebop_test_002",
+        "bebop_test_003",
+        "bebop_test_005",
+        "bebop_test_006",
+        "bebop_test_007",
+        "bebop_test_009",
+        "bebop_test_011",
         "ref_frame",
     },
-    "val": {"bebop_001_val"},
+    "val": {
+        "bebop_001_val",
+        "bebop_test_004",
+        "bebop_test_008",
+        "bebop_test_010",
+    },
 }
 
 VALID_STATUS = "valid"

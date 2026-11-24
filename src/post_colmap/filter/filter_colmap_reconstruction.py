@@ -36,15 +36,16 @@ PROJECT_ROOT = Path(__file__).resolve().parents[3]
 
 INPUT_MODEL = (
     PROJECT_ROOT
-    / "results_colmap/v1_0_v2_0/sparse/1_txt/"
+    / "results_colmap/v2_1/sparse/0_txt/"
 )
 
 OUTPUT_DIR = (
     PROJECT_ROOT
-    / "results_colmap/v2_0/sparse/0_txt/"
+    / "results_colmap/v2_1/sparse/1_txt/"
 )
 
-EXPECTED_IMAGES = 1189
+EXPECTED_IMAGES = 2115
+EXPECTED_EXCLUDED_IMAGES = 161
 MIN_TRACK_LENGTH = 2
 
 VIDEO_COUNTS = {
@@ -53,11 +54,26 @@ VIDEO_COUNTS = {
     "bebop_003_train": 217,
     "bebop_004_train": 238,
     "bebop_005_train": 276,
+
+    "bebop_test_001": 80,
+    "bebop_test_002": 91,
+    "bebop_test_003": 74,
+    "bebop_test_004": 111,
+    "bebop_test_005": 66,
+    "bebop_test_006": 43,
+    "bebop_test_007": 100,
+    "bebop_test_008": 86,
+    "bebop_test_009": 77,
+    "bebop_test_010": 88,
+    "bebop_test_011": 110,
 }
 
 IMAGE_PATTERN = re.compile(
-    r"^(ref_frame[0-9]+|"
-    r"bebop_00[1-5]_(?:val|train)_frame_[0-9]+)\.jpg$"
+    r"^(?:"
+    r"ref_frame\d+"
+    r"|bebop_00[1-5]_(?:val|train)_frame_\d+"
+    r"|bebop_test_0\d+_frame_\d+"
+    r")\.jpg$"
 )
 
 
@@ -235,7 +251,16 @@ def select_images(images):
 
     for image_id, image in images.items():
 
-        name = Path(image["name"]).name
+        full_name = image["name"]
+        path_parts = Path(full_name).parts
+
+        # Excluir explícitamente todas las imágenes de 1er Intento.
+        if "1er Intento" in path_parts:
+            counts["excluded_1er_intento"] += 1
+            continue
+
+        # Evaluar el nombre del archivo después de comprobar la ruta.
+        name = Path(full_name).name
 
         if IMAGE_PATTERN.fullmatch(name):
 
@@ -519,6 +544,13 @@ def main():
             f"Se esperaban {EXPECTED_IMAGES} imágenes, "
             f"pero se encontraron {len(selected)}. "
             "No se exportará el modelo."
+        )
+
+    if counts["excluded_1er_intento"] != EXPECTED_EXCLUDED_IMAGES:
+        raise ValueError(
+            f"Se esperaban {EXPECTED_EXCLUDED_IMAGES} imágenes de "
+            f"'1er Intento', pero se encontraron "
+            f"{counts['excluded_1er_intento']}."
         )
 
     if counts["references"] != 15:

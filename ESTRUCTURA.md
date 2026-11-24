@@ -503,3 +503,175 @@
 └── train_resnet18.ipynb
 
 141 directories, 360 files
+.
+├── checkpoints
+│   ├── .gitkeep
+│   └── pretrained_heads_epoch_250.pth.tar
+├── dataset
+│   ├── results_colmap
+│   │   ├── test_012
+│   │   │   ├── sparse
+│   │   │   │   └── 0
+│   │   │   │       ├── cameras.bin
+│   │   │   │       ├── images.bin
+│   │   │   │       ├── points3D.bin
+│   │   │   │       └── project.ini
+│   │   │   └── database.db
+│   │   ├── v1_0
+│   │   │   ├── sparse
+│   │   │   │   ├── 0
+│   │   │   │   │   ├── cameras.bin
+│   │   │   │   │   ├── images.bin
+│   │   │   │   │   ├── points3D.bin
+│   │   │   │   │   └── project.ini
+│   │   │   │   ├── 0_txt
+│   │   │   │   │   ├── cameras.txt
+│   │   │   │   │   ├── images.txt
+│   │   │   │   │   └── points3D.txt
+│   │   │   │   ├── 1
+│   │   │   │   │   ├── cameras.bin
+│   │   │   │   │   ├── images.bin
+│   │   │   │   │   ├── points3D.bin
+│   │   │   │   │   └── project.ini
+│   │   │   │   └── 1_txt
+│   │   │   │       ├── cameras.txt
+│   │   │   │       ├── images.txt
+│   │   │   │       └── points3D.txt
+│   │   │   ├── database.db
+│   │   │   ├── database.db-shm
+│   │   │   ├── database.db-wal
+│   │   │   ├── no_registradas_modelo_principal.txt
+│   │   │   ├── no_registradas_ningun_modelo.txt
+│   │   │   ├── registradas_cualquier_modelo.txt
+│   │   │   ├── registradas_modelo_0.txt
+│   │   │   ├── registradas.txt
+│   │   │   └── todas.txt
+│   │   ├── v1_0_v2_0
+│   │   │   ├── sparse
+│   │   │   │   ├── 0
+│   │   │   │   │   ├── cameras.bin
+│   │   │   │   │   ├── images.bin
+│   │   │   │   │   ├── points3D.bin
+│   │   │   │   │   └── project.ini
+│   │   │   │   ├── 1
+│   │   │   │   │   ├── cameras.bin
+│   │   │   │   │   ├── images.bin
+│   │   │   │   │   ├── points3D.bin
+│   │   │   │   │   └── project.ini
+│   │   │   │   └── 1_txt
+│   │   │   │       ├── cameras.txt
+│   │   │   │       ├── images.txt
+│   │   │   │       └── points3D.txt
+│   │   │   ├── database.db
+│   │   │   └── imagenes_restantes.txt
+│   │   └── v2_0
+│   │       ├── alignment
+│   │       │   ├── alignment_summary.txt
+│   │       │   ├── manual_review.txt
+│   │       │   ├── poses_drone_FLU.csv
+│   │       │   ├── pose_validation_all.csv
+│   │       │   ├── pose_validation_summary.txt
+│   │       │   └── similarity_transform_colmap_to_FLU.txt
+│   │       ├── sparse
+│   │       │   ├── 0
+│   │       │   │   ├── cameras.bin
+│   │       │   │   ├── images.bin
+│   │       │   │   ├── points3D.bin
+│   │       │   │   └── project.ini
+│   │       │   └── 0_txt
+│   │       │       ├── cameras.txt
+│   │       │       ├── images.txt
+│   │       │       └── points3D.txt
+│   │       ├── database.db
+│   │       └── filtering_report.txt
+│   ├── v1_0
+│   │   ├── frames  [12 entries exceeds filelimit, not opening dir]
+│   │   ├── frames_all  [646 entries exceeds filelimit, not opening dir]
+│   │   ├── videos  [12 entries exceeds filelimit, not opening dir]
+│   │   ├── colmap_alignment_stage1.json
+│   │   ├── poses_colmap.csv
+│   │   ├── poses_colmap_metric_aligned_A.csv
+│   │   └── poses_colmap_split.csv
+│   ├── v1_0_v2_0
+│   │   ├── frames  [18 entries exceeds filelimit, not opening dir]
+│   │   └── frames_all  [1315 entries exceeds filelimit, not opening dir]
+│   ├── v2_0
+│   │   ├── bebop_tests  [16 entries exceeds filelimit, not opening dir]
+│   │   ├── frames
+│   │   │   ├── bebop_001_val  [325 entries exceeds filelimit, not opening dir]
+│   │   │   ├── bebop_002_train  [165 entries exceeds filelimit, not opening dir]
+│   │   │   ├── bebop_003_train  [222 entries exceeds filelimit, not opening dir]
+│   │   │   ├── bebop_004_train  [268 entries exceeds filelimit, not opening dir]
+│   │   │   ├── bebop_005_train  [319 entries exceeds filelimit, not opening dir]
+│   │   │   └── ref  [15 entries exceeds filelimit, not opening dir]
+│   │   ├── frames_all  [1314 entries exceeds filelimit, not opening dir]
+│   │   ├── videos
+│   │   │   └── bebop_test_001.avi
+│   │   ├── colmap_reference_positions.txt
+│   │   └── poses_split.csv
+│   ├── v2_1
+│   │   ├── frames  [11 entries exceeds filelimit, not opening dir]
+│   │   ├── frames_all  [1123 entries exceeds filelimit, not opening dir]
+│   │   └── videos  [11 entries exceeds filelimit, not opening dir]
+│   ├── .~lock.poses_colmap_metric_aligned_A.csv#
+│   └── .~lock.poses_colmap_split.csv#
+├── docs
+│   ├── archive
+│   │   ├── Bitacora.md
+│   │   ├── README_04_11.md
+│   │   ├── README_07_10.md
+│   │   ├── README_11_11.md
+│   │   ├── README_21_10.md
+│   │   └── README_28_10.md
+│   ├── figures
+│   │   └── training_analysis  [15 entries exceeds filelimit, not opening dir]
+│   ├── reports
+│   │   ├── Progress_Report.md
+│   │   ├── Technical_Advances.md
+│   │   └── Training_Experiments_Summary.md
+│   └── comparacion.md
+├── eval_results
+│   └── .gitkeep
+├── experiments
+│   └── .gitkeep
+├── geomapnet  [12 entries exceeds filelimit, not opening dir]
+├── src
+│   ├── analysis_nn
+│   │   ├── analyze_run.py
+│   │   ├── compare_runs.py
+│   │   └── __init__.py
+│   ├── mapnet_adapters
+│   │   ├── __init__.py
+│   │   └── prepare_for_mapnet.py
+│   ├── neuralNetwork
+│   │   ├── dataset.py
+│   │   ├── __init__.py
+│   │   ├── model.py
+│   │   ├── test_resnet18.py
+│   │   ├── train_2.py
+│   │   └── train.py
+│   ├── post_colmap
+│   │   ├── filter
+│   │   │   └── filter_colmap_reconstruction.py
+│   │   ├── v1
+│   │   │   ├── align_colmap_poses.py
+│   │   │   ├── export_colmap_poses.py
+│   │   │   ├── split_dataset.py
+│   │   │   └── validate_poses.py
+│   │   ├── align_colmap_to_flu.py
+│   │   ├── split_dataset.py
+│   │   └── validate_poses.py
+│   ├── pre_colmap
+│   │   └── extract_frames.py
+│   └── __init__.py
+├── .gitignore
+├── README.md
+└── requirements.txt
+
+61 directories, 103 files
+
+
+*----------*****************************************************************************************************
+*----------*****************************************************************************************************
+*----------*****************************************************************************************************
+

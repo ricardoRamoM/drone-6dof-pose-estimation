@@ -28,7 +28,7 @@ import pandas as pd
 
 
 DEFAULT_INPUT = (
-    "results_colmap/v2_0/alignment/poses_drone_FLU.csv"
+    "results_colmap/v2_2/alignment/poses_drone_FLU.csv"
 )
 
 REQUIRED_COLUMNS = [

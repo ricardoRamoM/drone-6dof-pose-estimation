@@ -1,4 +1,6 @@
-"""Analiza uno o varios entrenamientos: 5 gráficas + resumen 2x3 + config + informe.
+"""
+#analyze_run.py
+Analiza uno o varios entrenamientos: 5 gráficas + resumen 2x3 + config + informe.
 
 Salida por run (por defecto):
     <root>/analysis/runs/<run_name>/

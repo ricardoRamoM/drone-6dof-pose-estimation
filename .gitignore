@@ -34,3 +34,13 @@ README_proyecto_drone_6dof.md
 docs/archive/
 
 src/train_resnet18.ipynb
+
+# MapNet
+/data/
+/checkpoints/
+/experiments/
+/eval_results/
+*.pth.tar
+geomapnet/data/deepslam_data/
+geomapnet/data/7Scenes/*/*.pkl
+geomapnet/data/7Scenes/*/dso_poses/

@@ -35,9 +35,9 @@ from pathlib import Path
 import numpy as np
 
 
-DEFAULT_IMAGES = Path("results_colmap/v2_0/sparse/0_txt/images.txt")
-DEFAULT_REFERENCES = Path("dataset/v2_0/colmap_reference_positions.txt")
-DEFAULT_OUTPUT = Path("results_colmap/v2_0/alignment")
+DEFAULT_IMAGES = Path("results_colmap/v2_2/sparse/0_txt/images.txt")
+DEFAULT_REFERENCES = Path("dataset/v2_2/colmap_reference_positions.txt")
+DEFAULT_OUTPUT = Path("results_colmap/v2_2/alignment")
 
 # Maps camera-coordinate vector components [right, down, forward]
 # to body FLU components [forward, left, up].

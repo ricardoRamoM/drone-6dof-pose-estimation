@@ -1,4 +1,6 @@
-"""Compara múltiples entrenamientos y genera material para asesoría.
+"""
+compare_runs.py
+Compara múltiples entrenamientos y genera material para asesoría.
 
 Además de la comparación genérica, produce:
   - Extracción de los 5 números clave por run.
